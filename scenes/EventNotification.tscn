@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/bg.png" type="Texture" id=1]
+
+[node name="EventNotification" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2( 0.25, 0.75 )
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 0, 98.9474 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="NotificationText" type="Label" parent="bg"]
+margin_left = 87.9732
+margin_top = 104.457
+margin_right = 163.973
+margin_bottom = 118.457
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sample text"
+align = 1
+
