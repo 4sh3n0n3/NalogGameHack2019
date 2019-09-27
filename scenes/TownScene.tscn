@@ -1,11 +1,44 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/TownScene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/TownMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Hint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/EventNotification.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/EventNotification.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/menu.png" type="Texture" id=6]
+[ext_resource path="res://assets/back.jpg" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "NavbarHide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Navbar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -200, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "NavbarShow"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Navbar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -200, 0 ), Vector2( 0, 0 ) ]
+}
 
 [node name="TownScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,16 +48,17 @@ position = Vector2( -982.732, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+current = true
 zoom = Vector2( 0.25, 0.75 )
 
 [node name="Hint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 260, 0 )
 
-[node name="Navbar" parent="." instance=ExtResource( 4 )]
-position = Vector2( -200, 0 )
-
-[node name="EventNotification" parent="." instance=ExtResource( 5 )]
+[node name="EventNotification" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="Navbar" parent="." instance=ExtResource( 5 )]
+position = Vector2( -200, 0 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_right = 50.0
@@ -32,4 +66,16 @@ margin_bottom = 50.0
 texture_normal = ExtResource( 6 )
 expand = true
 
+[node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
+margin_right = 50.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/NavbarHide = SubResource( 1 )
+anims/NavbarShow = SubResource( 2 )
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton_pressed"]
