@@ -1,0 +1,26 @@
+extends RigidBody2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+func delete():
+	queue_free()
+func clear():
+	delete()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+func    get_type(): 
+	return "Coin"
+
+func _on_CoinInvader_body_entered(body):
+	if is_class ( "CoinInvader"):
+		return
+	if body.has_method("delete"):
+		body.call("delete");
+		delete()
+	pass # Replace with function body.
