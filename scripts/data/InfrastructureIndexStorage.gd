@@ -13,52 +13,70 @@ var indexes
 var infstruct_to_indexes_keys
 
 """
+Constructor
 @method _init
 @param infstructs Dictionary A dictionary of infrastructures
 @param indexes Dictionary A dictionary of indexes
+@return void
 """
 func _init(infstructs: Dictionary, indexes: Dictionary):
 	self.infstructs = infstructs
 	self.indexes = indexes
 
 """
-@method set_infrastructure
+Sets value for specified infrastructure
+@method set__infrastructure
 @param inf_key String Infrastructure key
 @param inf_value int Infrastructure value
+@return void
 """
-func set_infrastructure(inf_key: String, inf_value: int):
+func set__infrastructure(inf_key: String, inf_value: int):
 	self.infstructs[inf_key] = inf_value
 	for idx_key in self.infstruct_to_indexes_keys[inf_key]:
 		self.indexes[idx_key] = inf_value
 
 """
-@method set_index
-@param idx_key String Index key
+Sets value for specified index
+@method set__index
+@param idx_key String Index name
 @param idx_value int Index value
+@return void
 """
-func setIndex(idx_key: String, idx_value: int):
+func set__index(idx_key: String, idx_value: int):
 	self.indexes[idx_key] = idx_value
 
 """
-@method set_infrastructures_to_indexes_keys
-@param inf_key String Infrastructure key
+Sets a link between infrastructure and indexes
+@method set__infrastructures_to_indexes_keys
+@param inf_key String Infrastructure name
 @param idx_keys Array Array of index keys
+@return void
 """
-func set_infrastructures_to_indexes_keys(inf_key: String, idx_keys: Array):
+func set__infrastructures_to_indexes_keys(inf_key: String, idx_keys: Array):
 	self.infstruct_to_indexes_keys[inf_key] = idx_keys
 
 """
-@method get_infrastructure
-@param inf_key String
-@return int
+Returns infrastructure value
+@method get__infrastructure
+@param inf_key String Infrastructure name
+@return float
 """
-func get_infrastructure(inf_key: String):
+func get__infrastructure(inf_key: String):
 	return self.infstructs[inf_key]
 
 """
-@method get_index
-@param idx_key int Index key
-@return int
+Returns index value
+@method get__index
+@param idx_key String Index name
+@return float
 """
-func get_ndex(idx_key: int):
+func get__index(idx_key: String):
 	return self.indexes[idx_key]
+
+"""
+Returns all indexes
+@method get__indexes
+@return Array
+"""
+func get__indexes():
+	return self.indexes
