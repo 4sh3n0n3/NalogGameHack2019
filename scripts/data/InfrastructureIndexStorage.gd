@@ -12,6 +12,9 @@ var indexes
 """ @type:Dictionary """
 var infstruct_to_indexes_keys
 
+const Config = preload("res://scripts/config/InfrastructureIndexStorageConfigLoader.gd")
+const PATH_TO_CONFIG="res://config/Districts.cfg"
+
 """
 Constructor
 @method _init
@@ -20,6 +23,7 @@ Constructor
 @return void
 """
 func _init(infstructs: Dictionary, indexes: Dictionary):
+	self.infstruct_to_indexes_keys = Config.load_file(PATH_TO_CONFIG)
 	self.infstructs = infstructs
 	self.indexes = indexes
 
@@ -52,7 +56,7 @@ Sets a link between infrastructure and indexes
 @param idx_keys Array Array of index keys
 @return void
 """
-func set__infrastructures_to_indexes_keys(inf_key: String, idx_keys: Array):
+func set__infrastructures_to_indexes_keys(inf_key: String, idx_keys: Dictionary):
 	self.infstruct_to_indexes_keys[inf_key] = idx_keys
 
 """
