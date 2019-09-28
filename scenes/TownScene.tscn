@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/TownScene.gd" type="Script" id=1]
-[ext_resource path="res://scenes/TownMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Hint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/EventNotification.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/menu.png" type="Texture" id=6]
-[ext_resource path="res://assets/back.jpg" type="Texture" id=7]
+[ext_resource path="res://assets/hexagon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/TownMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Hint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/EventNotification.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/menu.png" type="Texture" id=7]
+[ext_resource path="res://assets/back.jpg" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -43,39 +44,100 @@ tracks/0/keys = {
 [node name="TownScene" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="TownMap" parent="." instance=ExtResource( 2 )]
-position = Vector2( -982.732, 0 )
+[node name="Tile1" type="TextureButton" parent="."]
+margin_left = 77.7491
+margin_top = 80.8311
+margin_right = 296.749
+margin_bottom = 270.831
+rect_scale = Vector2( 0.46, 0.46 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Tile2" type="TextureButton" parent="."]
+margin_left = 154.002
+margin_top = 124.875
+margin_right = 373.002
+margin_bottom = 314.875
+rect_scale = Vector2( 0.46, 0.46 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Tile3" type="TextureButton" parent="."]
+margin_left = 153.498
+margin_top = 212.338
+margin_right = 372.498
+margin_bottom = 402.338
+rect_scale = Vector2( 0.46, 0.46 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Tile4" type="TextureButton" parent="."]
+margin_left = 77.9346
+margin_top = 255.95
+margin_right = 296.935
+margin_bottom = 445.95
+rect_scale = Vector2( 0.46, 0.46 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Tile5" type="TextureButton" parent="."]
+margin_left = 2.00001
+margin_top = 213.152
+margin_right = 221.0
+margin_bottom = 403.152
+rect_scale = Vector2( 0.46, 0.46 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Tile6" type="TextureButton" parent="."]
+margin_left = 77.9043
+margin_top = 168.798
+margin_right = 296.904
+margin_bottom = 358.798
+rect_scale = Vector2( 0.46, 0.46 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+
+[node name="TownMap" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2, 125 )
+scale = Vector2( 0.46, 0.46 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
 zoom = Vector2( 0.25, 0.75 )
 
-[node name="Hint" parent="." instance=ExtResource( 3 )]
+[node name="Hint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 260, 0 )
 
-[node name="EventNotification" parent="." instance=ExtResource( 4 )]
+[node name="EventNotification" parent="." instance=ExtResource( 5 )]
 visible = false
 
-[node name="Navbar" parent="." instance=ExtResource( 5 )]
+[node name="Navbar" parent="." instance=ExtResource( 6 )]
 position = Vector2( -200, 0 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_right = 50.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 7 )
 expand = true
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 visible = false
 margin_right = 50.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/NavbarHide = SubResource( 1 )
 anims/NavbarShow = SubResource( 2 )
 
+[connection signal="pressed" from="Tile1" to="." method="_on_Tile1_pressed"]
+[connection signal="pressed" from="Tile2" to="." method="_on_Tile2_pressed"]
+[connection signal="pressed" from="Tile3" to="." method="_on_Tile3_pressed"]
+[connection signal="pressed" from="Tile4" to="." method="_on_Tile4_pressed"]
+[connection signal="pressed" from="Tile5" to="." method="_on_Tile5_pressed"]
+[connection signal="pressed" from="Tile6" to="." method="_on_Tile6_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton_pressed"]

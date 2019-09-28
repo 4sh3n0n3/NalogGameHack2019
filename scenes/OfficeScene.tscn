@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scenes/OfficeScene.gd" type="Script" id=1]
+[ext_resource path="res://scripts/OfficeScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/office.jpg" type="Texture" id=2]
 [ext_resource path="res://scenes/EventNotification.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Hint.tscn" type="PackedScene" id=4]
