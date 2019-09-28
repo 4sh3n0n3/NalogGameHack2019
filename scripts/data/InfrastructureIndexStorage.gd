@@ -10,7 +10,7 @@ var infstructs
 """ @type:Dictionary """
 var indexes
 """ @type:Dictionary """
-var infstruct_to_indexes_keys = {}
+var infstruct_to_indexes_keys
 
 """
 Constructor

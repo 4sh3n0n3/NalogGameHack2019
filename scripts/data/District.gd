@@ -1,5 +1,8 @@
-extends Reference
+extends Object
 
+class_name District
+
+""" @type: InfrastructureIndexStorage """
 var storage
 const InfrastructureIndexStorage = preload("res://scripts/data/InfrastructureIndexStorage.gd")
 
