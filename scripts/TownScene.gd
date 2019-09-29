@@ -23,7 +23,7 @@ func _input(event):
 				$Tile4.visible=true
 				$Tile5.visible=true
 				$Tile6.visible=true
-			$EventNotification.visible=false
+			#$EventNotification.visible=false
 			
 func _on_TextureButton_pressed():
 	if(!navbarShown):
@@ -33,21 +33,10 @@ func _on_TextureButton_pressed():
 		$Tile4.visible=false
 		$Tile5.visible=false
 		$Tile6.visible=false
-		$TextureButton2.visible=true
+		$Button.visible=true
 		$TextureButton.visible=false
 		$AnimationPlayer.play("NavbarShow")
 		navbarShown=true
-	else:
-		$Tile1.visible=true
-		$Tile2.visible=true
-		$Tile3.visible=true
-		$Tile4.visible=true
-		$Tile5.visible=true
-		$Tile6.visible=true
-		$TextureButton2.visible=false
-		$TextureButton.visible=true
-		$AnimationPlayer.play("NavbarHide")
-		navbarShown=false
 	pass # Replace with function body.
 
 
@@ -114,4 +103,19 @@ func _on_Tile6_pressed():
 	$Tile5.visible=false
 	$Tile6.visible=false
 	$EventNotification.visible=true
+	pass # Replace with function body.
+
+
+func _on_Button_pressed():
+	if(navbarShown):
+		$Tile1.visible=true
+		$Tile2.visible=true
+		$Tile3.visible=true
+		$Tile4.visible=true
+		$Tile5.visible=true
+		$Tile6.visible=true
+		$Button.visible=false
+		$TextureButton.visible=true
+		$AnimationPlayer.play("NavbarHide")
+		navbarShown=false
 	pass # Replace with function body.
