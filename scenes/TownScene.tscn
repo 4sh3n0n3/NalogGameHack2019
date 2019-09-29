@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/TownScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/bg.png" type="Texture" id=2]
@@ -6,9 +6,28 @@
 [ext_resource path="res://scenes/TownMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Hint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/EventNotification.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/menu.png" type="Texture" id=7]
-[ext_resource path="res://assets/stars (1).png" type="Texture" id=8]
-[ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/safety_icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/education_icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/medicine_icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/transport_icon.png" type="Texture" id=10]
+[ext_resource path="res://assets/coinGold.png" type="Texture" id=11]
+[ext_resource path="res://assets/stars (1).png" type="Texture" id=12]
+[ext_resource path="res://assets/plus_icon.png" type="Texture" id=13]
+[ext_resource path="res://assets/hud_p3Alt.png" type="Texture" id=14]
+[ext_resource path="res://assets/button_minigame.png" type="Texture" id=15]
+[ext_resource path="res://assets/button_minigame_pressed.png" type="Texture" id=16]
+[ext_resource path="res://assets/button_district.png" type="Texture" id=17]
+[ext_resource path="res://assets/button_district_pressed.png" type="Texture" id=18]
+[ext_resource path="res://assets/button_avatar.png" type="Texture" id=19]
+[ext_resource path="res://assets/button_avatar_pressed.png" type="Texture" id=20]
+[ext_resource path="res://assets/menu.png" type="Texture" id=21]
+[ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/navbar_button_exit.png" type="Texture" id=23]
+[ext_resource path="res://assets/button_psn.png" type="Texture" id=24]
+[ext_resource path="res://assets/button_envd.png" type="Texture" id=25]
+[ext_resource path="res://assets/button_eshn.png" type="Texture" id=26]
+[ext_resource path="res://assets/button_osn.png" type="Texture" id=27]
+[ext_resource path="res://assets/button_usn.png" type="Texture" id=28]
 
 [sub_resource type="Animation" id=1]
 
@@ -44,6 +63,9 @@ tracks/0/keys = {
 
 [node name="TownScene" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 130.075, 178.191, 233.709, 185.327, 248.632, 307.348 ]
+}
 
 [node name="Button" type="Button" parent="."]
 margin_left = 200.0
@@ -121,15 +143,208 @@ current = true
 zoom = Vector2( 0.25, 0.75 )
 
 [node name="Hint" parent="." instance=ExtResource( 5 )]
-position = Vector2( 260, 0 )
+position = Vector2( 260, 2.39496 )
 
 [node name="EventNotification" parent="." instance=ExtResource( 6 )]
 visible = false
+position = Vector2( 0.440125, 0.617493 )
+
+[node name="goverment" type="Node2D" parent="EventNotification"]
+visible = false
+position = Vector2( 0, -26 )
+
+[node name="first" type="Node2D" parent="EventNotification/goverment"]
+
+[node name="TextureButton" type="TextureButton" parent="EventNotification/goverment/first"]
+visible = false
+margin_left = 15.7456
+margin_top = 130.418
+margin_right = 53.7456
+margin_bottom = 168.418
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="TextureButton4" type="TextureButton" parent="EventNotification/goverment/first"]
+margin_left = 77.6276
+margin_top = 131.254
+margin_right = 115.628
+margin_bottom = 169.254
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="TextureButton2" type="TextureButton" parent="EventNotification/goverment/first"]
+margin_left = 141.6
+margin_top = 130.836
+margin_right = 179.6
+margin_bottom = 168.836
+texture_normal = ExtResource( 9 )
+expand = true
+
+[node name="TextureButton3" type="TextureButton" parent="EventNotification/goverment/first"]
+visible = false
+margin_left = 204.112
+margin_top = 131.672
+margin_right = 242.112
+margin_bottom = 169.672
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="EventNotification/goverment/first"]
+visible = false
+margin_left = 13.9338
+margin_top = 169.192
+margin_right = 53.9338
+margin_bottom = 183.192
+text = "test"
+align = 1
+
+[node name="Label3" type="Label" parent="EventNotification/goverment/first"]
+margin_left = 75.8158
+margin_top = 170.028
+margin_right = 115.816
+margin_bottom = 184.028
+text = "test"
+align = 1
+
+[node name="Label2" type="Label" parent="EventNotification/goverment/first"]
+margin_left = 139.788
+margin_top = 169.61
+margin_right = 179.788
+margin_bottom = 183.61
+text = "test"
+align = 1
+
+[node name="Label4" type="Label" parent="EventNotification/goverment/first"]
+visible = false
+margin_left = 201.67
+margin_top = 170.446
+margin_right = 241.67
+margin_bottom = 184.446
+text = "test"
+align = 1
+
+[node name="Node2D" type="Node2D" parent="EventNotification/goverment"]
+editor/display_folded = true
+
+[node name="coinGold" type="Sprite" parent="EventNotification/goverment/Node2D"]
+position = Vector2( 79.3472, 211.474 )
+texture = ExtResource( 11 )
+
+[node name="coinGold3" type="Sprite" parent="EventNotification/goverment/Node2D"]
+position = Vector2( 80.0461, 273.629 )
+texture = ExtResource( 11 )
+
+[node name="coinGold2" type="Sprite" parent="EventNotification/goverment/Node2D"]
+position = Vector2( 177.909, 211.474 )
+texture = ExtResource( 11 )
+
+[node name="coinGold4" type="Sprite" parent="EventNotification/goverment/Node2D"]
+position = Vector2( 178.608, 273.629 )
+texture = ExtResource( 11 )
+
+[node name="TextureProgress" type="TextureProgress" parent="EventNotification/goverment/Node2D"]
+margin_left = 45.6511
+margin_top = 235.148
+margin_right = 320.651
+margin_bottom = 278.148
+rect_scale = Vector2( 0.25, 0.25 )
+max_value = 1200.0
+value = 100.0
+texture_progress = ExtResource( 12 )
+
+[node name="TextureProgress4" type="TextureProgress" parent="EventNotification/goverment/Node2D"]
+margin_left = 46.35
+margin_top = 297.303
+margin_right = 321.35
+margin_bottom = 340.303
+rect_scale = Vector2( 0.25, 0.25 )
+max_value = 1200.0
+value = 100.0
+texture_progress = ExtResource( 12 )
+
+[node name="TextureProgress2" type="TextureProgress" parent="EventNotification/goverment/Node2D"]
+margin_left = 144.213
+margin_top = 235.148
+margin_right = 419.213
+margin_bottom = 278.148
+rect_scale = Vector2( 0.25, 0.25 )
+max_value = 1200.0
+value = 100.0
+texture_progress = ExtResource( 12 )
+
+[node name="TextureProgress3" type="TextureProgress" parent="EventNotification/goverment/Node2D"]
+margin_left = 144.912
+margin_top = 297.303
+margin_right = 419.912
+margin_bottom = 340.303
+rect_scale = Vector2( 0.25, 0.25 )
+max_value = 1200.0
+value = 100.0
+texture_progress = ExtResource( 12 )
+
+[node name="avatar" type="Node2D" parent="EventNotification"]
+
+[node name="Add" type="TextureButton" parent="EventNotification/avatar"]
+visible = false
+margin_left = 116.0
+margin_top = 183.814
+margin_right = 140.0
+margin_bottom = 207.814
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="Node2D" type="Node2D" parent="EventNotification/avatar"]
+
+[node name="hud_p3Alt" type="Sprite" parent="EventNotification/avatar/Node2D"]
+position = Vector2( 33.5426, 107.087 )
+texture = ExtResource( 14 )
+
+[node name="name" type="Label" parent="EventNotification/avatar/Node2D"]
+margin_left = 94.0
+margin_top = 98.6825
+margin_right = 195.0
+margin_bottom = 123.682
+text = "Name"
+
+[node name="Minigame" type="TextureButton" parent="EventNotification/avatar/Node2D"]
+margin_left = 72.4239
+margin_top = 214.064
+margin_right = 186.424
+margin_bottom = 255.064
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+expand = true
+
+[node name="score" type="Label" parent="EventNotification/avatar/Node2D"]
+margin_left = 69.0
+margin_top = 149.0
+margin_right = 125.0
+margin_bottom = 180.0
+text = "score
+"
+
+[node name="gov" type="TextureButton" parent="EventNotification"]
+margin_left = 8.99133
+margin_top = 307.054
+margin_right = 88.9913
+margin_bottom = 327.054
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+expand = true
+
+[node name="av" type="TextureButton" parent="EventNotification"]
+margin_left = 166.164
+margin_top = 307.114
+margin_right = 246.164
+margin_bottom = 327.114
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+expand = true
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_right = 50.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 21 )
 expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -141,11 +356,98 @@ margin_top = 418.0
 margin_right = 292.0
 margin_bottom = 482.0
 rect_scale = Vector2( 0.5, 0.5 )
-value = 100.0
-texture_progress = ExtResource( 8 )
+max_value = 1200.0
+texture_progress = ExtResource( 12 )
 
-[node name="Navbar" parent="." instance=ExtResource( 9 )]
+[node name="Navbar" parent="." instance=ExtResource( 22 )]
 position = Vector2( -200, 0 )
+
+[node name="EventNotification2" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="IP" type="TextureButton" parent="EventNotification2"]
+margin_left = 150.742
+margin_top = 165.516
+margin_right = 244.742
+margin_bottom = 205.516
+texture_normal = ExtResource( 23 )
+expand = true
+
+[node name="YurLico" type="TextureButton" parent="EventNotification2"]
+margin_left = 25.0
+margin_top = 166.0
+margin_right = 115.0
+margin_bottom = 206.0
+texture_normal = ExtResource( 23 )
+expand = true
+
+[node name="EventNotification3" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="TextureButton" type="TextureButton" parent="EventNotification3"]
+margin_left = 90.8699
+margin_top = 91.0066
+margin_right = 160.87
+margin_bottom = 132.007
+texture_normal = ExtResource( 24 )
+expand = true
+
+[node name="TextureButton2" type="TextureButton" parent="EventNotification3"]
+margin_left = 23.8651
+margin_top = 145.583
+margin_right = 93.8651
+margin_bottom = 186.583
+texture_normal = ExtResource( 25 )
+expand = true
+
+[node name="TextureButton3" type="TextureButton" parent="EventNotification3"]
+margin_left = 157.875
+margin_top = 145.043
+margin_right = 227.875
+margin_bottom = 186.043
+texture_normal = ExtResource( 26 )
+expand = true
+
+[node name="TextureButton4" type="TextureButton" parent="EventNotification3"]
+margin_left = 163.819
+margin_top = 220.153
+margin_right = 233.819
+margin_bottom = 261.153
+texture_normal = ExtResource( 27 )
+expand = true
+
+[node name="TextureButton5" type="TextureButton" parent="EventNotification3"]
+margin_left = 30.7284
+margin_top = 216.184
+margin_right = 100.728
+margin_bottom = 257.184
+texture_normal = ExtResource( 28 )
+expand = true
+
+[node name="EventNotification4" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="LineEdit" type="LineEdit" parent="EventNotification4"]
+margin_left = 93.0498
+margin_top = 180.93
+margin_right = 151.05
+margin_bottom = 204.93
+text = "Name"
+
+[node name="Label" type="Label" parent="EventNotification4"]
+margin_left = 99.5116
+margin_top = 156.375
+margin_right = 139.512
+margin_bottom = 170.375
+text = "name"
+
+[node name="TextureButton" type="TextureButton" parent="EventNotification4"]
+margin_left = 82.8832
+margin_top = 320.863
+margin_right = 172.883
+margin_bottom = 338.863
+texture_normal = ExtResource( 19 )
+expand = true
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Tile1" to="." method="_on_Tile1_pressed"]
@@ -154,4 +456,15 @@ position = Vector2( -200, 0 )
 [connection signal="pressed" from="Tile4" to="." method="_on_Tile4_pressed"]
 [connection signal="pressed" from="Tile5" to="." method="_on_Tile5_pressed"]
 [connection signal="pressed" from="Tile6" to="." method="_on_Tile6_pressed"]
+[connection signal="pressed" from="EventNotification/avatar/Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="EventNotification/gov" to="." method="_on_gov_pressed"]
+[connection signal="pressed" from="EventNotification/av" to="." method="_on_av_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="EventNotification2/IP" to="." method="_on_IP_pressed"]
+[connection signal="pressed" from="EventNotification2/YurLico" to="." method="_on_YurLico_pressed"]
+[connection signal="pressed" from="EventNotification3/TextureButton" to="." method="_on_TextureButton1_pressed"]
+[connection signal="pressed" from="EventNotification3/TextureButton2" to="." method="_on_TextureButton2_pressed"]
+[connection signal="pressed" from="EventNotification3/TextureButton3" to="." method="_on_TextureButton3_pressed"]
+[connection signal="pressed" from="EventNotification3/TextureButton4" to="." method="_on_TextureButton4_pressed"]
+[connection signal="pressed" from="EventNotification3/TextureButton5" to="." method="_on_TextureButton5_pressed"]
+[connection signal="pressed" from="EventNotification4/TextureButton" to="." method="_on_ConfirmButton_pressed"]
