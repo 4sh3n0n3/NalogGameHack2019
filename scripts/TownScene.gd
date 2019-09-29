@@ -255,3 +255,8 @@ func _on_av_pressed():
 	$EventNotification/av.pressed=true
 	$EventNotification/gov.pressed=false
 	pass # Replace with function body.
+
+
+func _on_Minigame_pressed():
+	get_tree().change_scene("res://scenes/SpaceInvaders.tscn")
+	pass # Replace with function body.
