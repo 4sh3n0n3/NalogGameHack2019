@@ -51,6 +51,8 @@ config/icon="res://icon.png"
 [autoload]
 
 TaxSchema="*res://scripts/TaxSchema.gd"
+Global="*res://Global.gd"
+save_script="*res://scripts/save_script.gd"
 
 [display]
 

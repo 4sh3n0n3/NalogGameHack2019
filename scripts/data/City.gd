@@ -4,6 +4,7 @@ class_name City
 
 """ @type: Dictionary """
 var districts
+var free_points
 
 """
 Constructor
