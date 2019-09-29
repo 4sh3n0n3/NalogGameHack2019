@@ -12,8 +12,9 @@ Constructor
 @param districs Dictionary
 @return void
 """
-func _init(districts):
+func _init(districts, free_pts=0):
 	self.districts = districts
+	self.free_points = free_pts
 
 """
 Returns district

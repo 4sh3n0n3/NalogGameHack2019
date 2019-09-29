@@ -186,9 +186,12 @@ func _on_YurLico_pressed():
 
 
 func _on_TextureButton2_pressed():
+	var key="District"+str(curDistrict)
 	tax_type=2
-	$EventNotification3.visible=false
-	$EventNotification4.visible=true
+	if (Global.city.free_points >= 50):
+		Global.city.districts[key].storage.infstructs["medicine"] += 50
+		Global.city.free_points -= 50
+		save_script.save_data(Global.city)
 	pass # Replace with function body.
 
 
@@ -200,9 +203,12 @@ func _on_TextureButton3_pressed():
 
 
 func _on_TextureButton4_pressed():
+	var key="District"+str(curDistrict)
 	tax_type=4
-	$EventNotification3.visible=false
-	$EventNotification4.visible=true
+	if (Global.city.free_points >= 50):
+		Global.city.districts[key].storage.infstructs["education"] += 50
+		Global.city.free_points -= 50
+		save_script.save_data(Global.city)
 	pass # Replace with function body.
 
 
