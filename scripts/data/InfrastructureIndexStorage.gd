@@ -84,3 +84,7 @@ Returns all indexes
 """
 func get__indexes():
 	return self.indexes
+
+
+func get__infrastructures():
+	return self.infstructs

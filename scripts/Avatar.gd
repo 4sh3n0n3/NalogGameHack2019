@@ -6,5 +6,6 @@ var unique_name
 var img
 
 func _init(schema, un):
-	taxSchema = taxSchema
+	taxSchema = schema
 	unique_name = un
+	points = 0
