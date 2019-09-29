@@ -30,7 +30,6 @@
 [ext_resource path="res://assets/button_usn.png" type="Texture" id=28]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "NavbarHide"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Navbar:position")
@@ -46,7 +45,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "NavbarShow"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Navbar:position")
@@ -146,11 +144,9 @@ zoom = Vector2( 0.25, 0.75 )
 position = Vector2( 260, 2.39496 )
 
 [node name="EventNotification" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 0.440125, 0.617493 )
 
 [node name="goverment" type="Node2D" parent="EventNotification"]
-visible = false
 position = Vector2( 0, -26 )
 
 [node name="first" type="Node2D" parent="EventNotification/goverment"]
@@ -448,7 +444,6 @@ margin_right = 172.883
 margin_bottom = 338.863
 texture_normal = ExtResource( 19 )
 expand = true
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Tile1" to="." method="_on_Tile1_pressed"]
 [connection signal="pressed" from="Tile2" to="." method="_on_Tile2_pressed"]
@@ -456,6 +451,8 @@ expand = true
 [connection signal="pressed" from="Tile4" to="." method="_on_Tile4_pressed"]
 [connection signal="pressed" from="Tile5" to="." method="_on_Tile5_pressed"]
 [connection signal="pressed" from="Tile6" to="." method="_on_Tile6_pressed"]
+[connection signal="pressed" from="EventNotification/goverment/first/TextureButton4" to="." method="_on_TextureButton4_pressed"]
+[connection signal="pressed" from="EventNotification/goverment/first/TextureButton2" to="." method="_on_TextureButton2_pressed"]
 [connection signal="pressed" from="EventNotification/avatar/Add" to="." method="_on_Add_pressed"]
 [connection signal="pressed" from="EventNotification/gov" to="." method="_on_gov_pressed"]
 [connection signal="pressed" from="EventNotification/av" to="." method="_on_av_pressed"]
