@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Object",
+"class": "City",
+"language": "GDScript",
+"path": "res://scripts/data/City.gd"
+}, {
+"base": "Object",
+"class": "District",
+"language": "GDScript",
+"path": "res://scripts/data/District.gd"
+}, {
+"base": "Object",
+"class": "InfrastructureIndexStorage",
+"language": "GDScript",
+"path": "res://scripts/data/InfrastructureIndexStorage.gd"
+}, {
+"base": "Object",
+"class": "InfrastructureIndexStorageConfigLoader",
+"language": "GDScript",
+"path": "res://scripts/config/InfrastructureIndexStorageConfigLoader.gd"
+}, {
+"base": "Object",
+"class": "InfrastructureIndexStorageDataGenerator",
+"language": "GDScript",
+"path": "res://scripts/data/generator/InfrastructureIndexStorageDataGenerator.gd"
+} ]
 _global_script_class_icons={
-
+"City": "",
+"District": "",
+"InfrastructureIndexStorage": "",
+"InfrastructureIndexStorageConfigLoader": "",
+"InfrastructureIndexStorageDataGenerator": ""
 }
 
 [application]
