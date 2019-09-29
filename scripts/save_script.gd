@@ -3,7 +3,9 @@ extends Node2D
 const PATH_TO_SAVE = "res://config/Save.cfg"
 const Avatar = preload("res://scripts/Avatar.gd")
 const District = preload("res://scripts/data/District.gd")
+const City = preload("res://scripts/data/City.gd")
 const InfrastructureIndexStorage = preload("res://scripts/data/InfrastructureIndexStorage.gd")
+onready var Global=get_node("/root/Global")
 
 static func save_data(city):
 	var config = ConfigFile.new()
@@ -11,6 +13,7 @@ static func save_data(city):
 	var dist
 	if err == OK:
 		config.set_value("CREATED", "value", true)
+		config.set_value("City", "free_points", city.free_points)
 		for key in city.districts.keys():
 			dist = city.districts[key]
 			if (dist.avatar):
@@ -26,10 +29,11 @@ static func load_data():
 	var config = ConfigFile.new()
 	var err = config.load(PATH_TO_SAVE)
 	var dists = {}
+	var city
 	var dist
 	if err == OK:
 		for key in config.get_sections():
-			if (key != "CREATED"):
+			if (key != "CREATED" && key != "City"):
 				dist = District.new(key, true)
 				if (config.has_section_key(key, "avatar_name")):
 					var unique_name = config.get_value(key, "avatar_name")
@@ -42,4 +46,6 @@ static func load_data():
 				var storage = InfrastructureIndexStorage.new(infstructs, indexes)
 				dist.storage = storage
 				dists[key] = dist
-	return dists
+		city = City.new(dists, config.get_value("City", "free_points"))
+		print(city)
+	return city
