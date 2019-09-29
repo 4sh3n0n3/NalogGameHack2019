@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/SpaceInvaders.gd" type="Script" id=1]
 [ext_resource path="res://assets/bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/menu.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Navbar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/progress_bar.png" type="Texture" id=5]
+[ext_resource path="res://assets/progress_bar_bar.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -63,6 +65,7 @@ margin_right = 256.0
 margin_bottom = 452.0
 
 [node name="bg" type="Sprite" parent="."]
+position = Vector2( -0.814514, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
@@ -101,8 +104,14 @@ centered = false
 position = Vector2( -200, 0 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 230.505
+margin_top = 53.7573
+margin_right = 358.505
+margin_bottom = 565.757
+rect_scale = Vector2( 0.2, 0.2 )
+max_value = 1200.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 fill_mode = 3
 
 [node name="Button2" type="Button" parent="."]
@@ -116,6 +125,13 @@ align = 0
 pause_mode = 2
 anims/NavbarHide = SubResource( 3 )
 anims/NavbarShow = SubResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 213.892
+margin_top = 1.80499
+margin_right = 253.892
+margin_bottom = 15.805
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="body_entered" from="DelitionArea" to="." method="_on_DelitionArea_body_entered"]

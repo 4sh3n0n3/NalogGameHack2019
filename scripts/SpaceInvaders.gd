@@ -1,5 +1,6 @@
 extends Node2D
-
+onready var Global=get_node("/root/Global")
+onready var TaxShema=get_node("/root/TaxSchema")
 var Tax=preload("res://scenes/TaxInvader.tscn")
 var Coin=preload("res://scenes/CoinInvader.tscn")
 var timer = 0
@@ -39,6 +40,8 @@ func _input(event):
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$TextureProgress.value=Global.city.free_points
+	$Label.text=str(Global.avatar.points)
 	timer+=delta
 	if(!check.get_ref()):
 		currentCoin=Coin.instance()
