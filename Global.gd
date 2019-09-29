@@ -11,7 +11,7 @@ var avatar
 var mainIndex=0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	city=City.new(Saves.load_data())
+	city=Saves.load_data()
 	update()
 	pass # Replace with function body.
 func update():
